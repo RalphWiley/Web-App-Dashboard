@@ -3,6 +3,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
+h3 {
+  font-size: 1em;
+}
+
+/* grid */
+
 .grid-container {
   display: grid;
   grid-template-columns: 100%;
@@ -14,11 +20,37 @@
 }
 .header {
   grid-area: header;
-  background-color: purple;
+  background-color: rgb(115, 121, 186);
+  display: flex;
+  flex-direction: row;
+  margin: auto 0;
+  color: white;
+  padding: 0 10px;
+  height: 50;
 }
+
+.header h1:first-child {
+  margin-right: auto;
+}
+
 .navigation {
   grid-area: navigation;
+  background-color: rgb(76, 77, 111);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50px;
 }
+
+section {
+  border-bottom: solid 1px lightgrey;
+}
+
+main {
+  padding-left: 5px;
+  /* padding-right: 5px; */
+}
+
 .main {
   grid-area: main;
   display: grid;
@@ -27,7 +59,98 @@
 .widget-container-full, .widget-container-half {
   width: 95vw;
 }
+/* header */
+.name {
+  font-size: 18px;
+  padding: 10px 0;
+}
 
+.bell-icon {
+  width: 15px;
+  height: 15px;
+  padding: 25px 5px;
+}
+
+.border {
+  padding: 15px 0;
+  font-size: 25px;
+  color: grey;
+  opacity: .5;
+}
+
+.profile {
+  width: 25px;
+  height: 25px;
+  display: block;
+  border-radius: 50%;
+  padding: 20px 2px;
+  padding-left: 5px;
+}
+
+.user {
+  font-size: 10px;
+  padding: 17px 0;
+}
+/* navigation */
+.logo {
+  width: 20px;
+  height: 20px;
+  padding: 12px 5px;
+}
+/* dashboard search */
+.main-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60px;
+  padding-left: 5px;
+}
+
+.main-header-search {
+  padding-top: 15px;
+  background-color: lightgrey;
+  border-bottom-left-radius: 5%;
+  padding-right: 0px;
+}
+
+.main-header-search input {
+  width: 50%;
+  float: right;
+  margin-right: 5px;
+}
+
+/* traffic */
+.traffic-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.traffic-header:last-child {
+  margin-left: auto;
+}
+
+.traffic-nav {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  margin: auto 0;
+  padding-right: 15px;
+}
+
+ul > li {
+  padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* media queries */
 @media (min-width: 768px) {
   .grid-container {
     grid-template-columns: 55px 1fr;
