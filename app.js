@@ -1,4 +1,10 @@
 const notification = document.getElementById("alert");
+const user = document.getElementById("userField");
+const message = document.getElementById("messageField");
+const send = document.getElementById("send");
+const alert = document.getElementById("Layer_1");
+const notes = document.getElementById("bell-icon");
+
 notification.innerHTML = `
     <div class="notification-banner">
         <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
@@ -9,6 +15,17 @@ notification.innerHTML = `
 notification.addEventListener('click', e => {
     if (e.target.classList.contains("notification-banner-close")){
         notification.style.display = "none";
+    }
+});
+
+function toggleDropDown() {
+    document.getElementById("notifications").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+notes.addEventListener('click', e => {
+    if (!e.target.matches('Layer_1')) {
+        toggleDropDown();
     }
 });
 
@@ -99,10 +116,25 @@ const mobileOptions = {
             fontStyle: 'bold'
         }
     }
-}
+};
 
 let mobileChart = new Chart(mobileCanvas, {
     type: 'doughnut',
     data: mobileData,
     options: mobileOptions
 });
+
+send.addEventListener('click', () => {
+    if(user.value === '' && message.value === ''){
+        alert('Please fill out user and message fields before sending');
+    }
+    else if (user.value === '') {
+        alert('Please fill out the user field before sending');
+    }
+    else if (message.value === '') {
+        alert('Please fill out the message field before sending');
+    }
+    else {
+        alert(`The message was sent to: ${user.value}!`);
+    }
+})

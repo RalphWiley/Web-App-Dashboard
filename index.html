@@ -12,7 +12,8 @@
     <div class="grid-container">
         <header class="header">
             <h1 class='name'>Your<span class="app">App</span></h1>
-            <div class="bell-icon">
+            
+            <div class="bell-icon" id="bell-icon">
                 <?xml version="1.0" encoding="utf-8"?>
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                 y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -25,7 +26,12 @@
                     </g>
                     <circle cx="80%" cy="20%" r="6" />
                 </svg>
-                <div id="notifications"></div>
+                <div id="notifications" class="dropdown-content">
+                    
+                        <p>This is a test</p>
+                        <p>Hello</p>
+                    
+                </div>
             </div>
             <div class="border">|</div>
             <img class='profile' src="images\member-1.jpg">
@@ -104,8 +110,6 @@
                         <svg enable-background="new 0 0 56.693 56.693" height="56.693px" id="Layer_1" version="1.1" viewBox="0 0 56.693 56.693" width="56.693px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <path fill="white" d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"/>
                         </svg>
-
-                        
                     </div>
                     <div class="social-text">
                         <p>Facebook</p>
@@ -144,23 +148,71 @@
             <section class="members">
                 <h3>New Members</h3>
                 <div class="members-container">
-                    <img src="images/Sept2018Profile.jpg" class="profile-image">
+                    <img src="images/member-1.jpg" class="profile-image">
                     <div class="members-text">
                         <p>Victoria Chambers</p>
                         <a href="#">victoria.chambers80@example.com</a>
                     </div>
-                    <p>10/15/15</p>
+                    <p class="date">10/15/15</p>
+                </div>
+                <div class="members-container">
+                    <img src="images/member-2.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dale Byrd</p>
+                        <a href="#">dale.byrd52@example.com</a>
+                    </div>
+                    <p class="date">10/15/15</p>
+                </div>
+                <div class="members-container">
+                    <img src="images/member-3.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dawn Wood</p>
+                        <a href="#">dawn.wood16@example.com</a>
+                    </div>
+                    <p class="date">10/15/15</p>
+                </div>
+                <div class="members-container" id="last-member">
+                    <img src="images/member-4.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dan Oliver</p>
+                        <a href="#">dan.oliver82@example.com</a>
+                    </div>
+                    <p class="date">10/15/15</p>
                 </div>
             </section>
             <section class="recent-activity">
                 <h3>Recent Activity</h3>
                 <div class="members-container">
-                    <img src="images/Sept2018Profile.jpg" class="profile-image">
+                    <img src="images/member-1.jpg" class="profile-image">
                     <div class="members-text">
-                        <p>Victoria Chambers</p>
-                        <a href="#">victoria.chambers80@example.com</a>
+                        <p>Victoria Chambers commented on MyApp's SEO tips</p>
+                        <p>4 hours ago</p>
                     </div>
-                    <p>10/15/15</p>
+                    <span class="arrow">></span>
+                </div>
+                <div class="members-container">
+                    <img src="images/member-2.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dale Byrd like the post Facebook's Change for 2016</p>
+                        <p>5 hours ago</p>
+                    </div>
+                    <span class="arrow">></span>
+                </div>
+                <div class="members-container">
+                    <img src="images/member-3.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dawn Wood commented on Facebook's Change for 2016</p>
+                        <p>5 hours ago</p>
+                    </div>
+                    <span class="arrow">></span>
+                </div>
+                <div class="members-container" id="last-activity">
+                    <img src="images/member-4.jpg" class="profile-image">
+                    <div class="members-text">
+                        <p>Dan Oliver posted MyApp's SEO tips</p>
+                        <p>1 day ago</p>
+                    </div>
+                    <span class="arrow">></span>
                 </div>
             </section>
             <!-- messaging widget -->
@@ -175,13 +227,39 @@
             <!-- local settings widget -->
             <section class="settings">
                 <h3>Settings</h3>
-                <!-- custom CSS toggle code-->
-                <!-- custom CSS toggle code-->
-                <select class="form-field" id="timezone">
-                    <option disabled selected>Select a Timezone</option>
-                    <option>Eastern</option>
-                    <!-- more options -->
-                </select>
+                <div class="toggle-container">
+                    <span class="toggle-title">Send Email Notification </span>
+                    <div class="toggle toggle-first">
+                        <label class="switch"><input type="checkbox" id="tog-btn">
+                            <div class="slider round">
+                                <span class="on">ON</span>
+                                <span class="off">OFF</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="toggle-container">
+                    <span class="toggle-title">Set Profile To Public</span>
+                    <div class="toggle toggle-second">
+                        <label class="switch"><input type="checkbox" id="tog-btn2">
+                            <div class="slider round">
+                                <span class="on">ON</span><span class="off">OFF</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="timezone-container">
+                    <select class="form-field" id="timezone" required>
+                        <option disabled selected>Select a Timezone</option>
+                        <option>Eastern</option>
+                        <option>Central</option>
+                        <option>Pacific</option>
+                        <option>Mountain</option>
+                        <option>Alaska</option>
+                        <option>Hawaii</option>
+                    </select>
+                </div>
                 <div class="settings-button">
                     <button class="button-primary" id="save">Save</button>
                     <button class="button-disabled" id="cancel">Cancel</button>
