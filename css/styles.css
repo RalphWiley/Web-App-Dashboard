@@ -210,15 +210,23 @@ section.donut {
   padding-right: 15px;
 }
 
-.traffic-nav .active {
-  background-color: rgb(156, 222, 139);
-  color: white;
-  border-radius: 5px;
+.traffic-nav:active {
+  background-color: rgb(129, 201, 143);
+  transition: all 0.6s;
+}
+
+.active {
+  background-color: rgb(129, 201, 143);
 }
 
 .traffic-nav li {
   padding: 0 5px;
   font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.traffic-nav-link {
+  padding: 2px;
 }
 
 /* social */

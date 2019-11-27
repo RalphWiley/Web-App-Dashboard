@@ -18,6 +18,88 @@ notification.addEventListener('click', e => {
     }
 });
 
+const trafficWidget = document.querySelector("#traffic-chart");
+
+const trafficRate = document.querySelector(".traffic-nav");
+
+let trafficData = {
+    labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+    datasets: [
+        {
+            data: [750, 1250, 1000, 1100, 1450, 1250, 3000, 3450, 2000, 1700, 2200],
+            backgroundColor: ["rgba(153, 102, 255, 0.2)"],
+            borderWidth: 2,
+            lineTension: 0.1,
+            pointRadius: 3,
+            pointBackgroundColor: "rgb(255, 255, 255)",
+            pointBorderColor: "rgb(115, 119, 191)"
+        }
+    ]
+};
+
+let trafficOptions = {
+    responsive: true,
+    aspectRatio: 2.5,
+    animation: {
+        duration: 2000
+    },
+    scales: {
+        yAxes: [
+            {
+                ticks: {
+                    beginAtZero: true
+                }
+            }
+        ]
+    },
+    legend: {
+        display: false
+    }
+};
+
+let trafficChart = new Chart(trafficWidget, {
+    type: "line",
+    data: trafficData,
+    options: trafficOptions
+});
+
+
+
+trafficRate.addEventListener('click', e => {
+    const rate = document.querySelectorAll(".traffic-nav-link");
+    for (let i = 0; i < rate.length; i++){
+        rate[i].classList.remove("active");
+    }
+    console.log(rate);
+    if (e.target.tagName === 'LI'){
+        let button = e.target;
+        const buttonFound = button.classList;
+        for (let i = 0; i < buttonFound.length; i++){
+            if(buttonFound[i] === 'hourly'){
+                buttonFound.add("active");
+                trafficChart.data.labels = ["4am","5am","6am","7am","8am","9am","10am","11am","12pm",
+                "1pm","2pm"];
+                trafficChart.data.datasets[0].data = [30,25,49, 25, 10, 23, 20, 12, 38, 42, 36];
+                trafficChart.update();
+            } else if (buttonFound[i] === 'daily') {
+                buttonFound.add("active");
+                trafficChart.data.labels = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
+                trafficChart.data.datasets[0].data = [400, 250, 490, 125, 107, 230, 208];
+                trafficChart.update();
+            } else if (buttonFound[i] === 'weekly'){
+                buttonFound.add("active");
+                trafficChart.data.labels = ["16-22","23-29","30-5","6-12","13-19","20-26","27-3","4-10","11-17","18-24","25-31"];
+                trafficChart.data.datasets[0].data = [750, 1450, 1490, 1250, 1070, 2301, 2082, 1412, 1338, 2442, 2336];
+            } else if (buttonFound[i] === 'monthly'){
+                buttonFound.add("active");
+                trafficChart.data.labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                trafficChart.data.datasets[0].data = [11750, 14250, 14900, 12500, 10700, 23010, 20820, 14120, 13380, 12442, 23360, 14000];
+                trafficChart.update();
+            }
+        }
+    }
+});
+
 function toggleDropDown() {
     document.getElementById("notifications").classList.toggle("show");
 }
@@ -28,39 +110,6 @@ notes.addEventListener('click', e => {
         toggleDropDown();
     }
 });
-
-let chart1 = document.getElementById('traffic-chart').getContext('2d');
-let trafficData = new Chart(chart1, {
-    type: 'line',
-    data: {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
-            "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-            data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500,
-                2500],
-            backgroundColor: 'rgba(116, 119, 191, .3)',
-            borderWidth: 1,
-
-        }]
-    },
-    aspectRatio: 2.5,
-    animation: {
-        duration: 0
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        },
-        legend: {
-            display: false
-        }
-    }
-}
-);
 
 const dailyCanvas = document.getElementById("daily-chart");
 // data for daily traffic bar chart
