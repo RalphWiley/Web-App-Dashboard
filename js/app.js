@@ -4,6 +4,19 @@ const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 const alert = document.getElementById("Layer_1");
 const notes = document.getElementById("bell-icon");
+const save = document.querySelector(".save");
+
+const trafficWidget = document.querySelector("#traffic-chart");
+const trafficRate = document.querySelector(".traffic-nav");
+
+const namesList = [
+    { name: "Dan Oliver"},
+    { name: "Dawn Wood" },
+    { name: "Professor Humperdink" },
+    { name: "Paul Rudd" },
+    { name: "RZA" },
+    { name: "Martin Scorsese" },
+];
 
 notification.innerHTML = `
     <div class="notification-banner">
@@ -17,10 +30,6 @@ notification.addEventListener('click', e => {
         notification.style.display = "none";
     }
 });
-
-const trafficWidget = document.querySelector("#traffic-chart");
-
-const trafficRate = document.querySelector(".traffic-nav");
 
 let trafficData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
@@ -62,8 +71,6 @@ let trafficChart = new Chart(trafficWidget, {
     data: trafficData,
     options: trafficOptions
 });
-
-
 
 trafficRate.addEventListener('click', e => {
     const rate = document.querySelectorAll(".traffic-nav-link");
@@ -186,4 +193,55 @@ send.addEventListener('click', () => {
     else {
         alert(`The message was sent to: ${user.value}!`);
     }
-})
+});
+const search = document.querySelector(".search");
+function myFunction(){
+    /*create a DIV element that will contain the items (values):*/
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    /*append the DIV element as a child of the autocomplete container:*/
+    search.parentNode.appendChild(a);
+    let filter = search.value.toLowerCase();
+    let filteredData = namesList.filter(person => person.name.toLowerCase().includes(filter.toLowerCase()));
+    b = document.createElement("DIV");
+    a.appendChild(b);
+    /*make the matching letters bold:*/
+    b.innerHTML = "<strong>" + filteredData + "</strong>";
+    b.innerHTML += filteredData;
+    /*insert a input field that will hold the current array item's value:*/
+    b.innerHTML += "<input type='hidden' value='" + filteredData + "'>";
+
+    /*execute a function when someone clicks on the item value (DIV element):*/
+    b.addEventListener("click", () => {
+        /*insert the value for the autocomplete text field:*/
+        search.value = this.getElementsByTagName("input")[0].value;
+      
+    });
+
+    if (filteredData) {
+        for (let i = 0; i < filteredData.length; i++) {
+            let searchFound = filteredData[i];
+            b = searchFound;
+            console.log(b);
+        }
+
+    }
+    
+}
+
+$(function () {
+    var users = [
+        "Victoria Chamber",
+        "Dale Byrd",
+        "Dawn Wood",
+        "Dan Oliver",
+        "John Smith",
+        "Jane Doe",
+        "Robert Jacobs",
+        "Lacie Andrews"
+    ];
+    $('.message-user').autocomplete({
+        source: users
+    });
+});

@@ -27,15 +27,11 @@
                     <circle cx="80%" cy="20%" r="6" />
                 </svg>
                 <div id="notifications" class="dropdown-content">
-                    
-                        <p>This is a test</p>
-                        <p>Hello</p>
-                    
                 </div>
             </div>
             <div class="border">|</div>
             <img class='profile' src="images\member-1.jpg">
-            <h3 class='user'>Doge Supreme</h3>
+            <h3 class='user'>Nicholas Keith</h3>
         </header>
 
         <nav class="navigation">
@@ -49,7 +45,8 @@
             <div class="main-header">
                 <h2 class="headline">Dashboard</h2>
                 <div class="main-header-search">
-                    <input type="search" placeholder="Search..." width="100px"/>
+                    <input type="search" placeholder="Search..."
+                    id="myInput" class="search" width="100px"/>
                 </div>
             </div>
             <div class="alert" id="alert">
@@ -144,7 +141,7 @@
                         <p>2530</p>
                     </div>
                 </div>
-            </div>
+            
             <section class="members">
                 <h3>New Members</h3>
                 <div class="members-container">
@@ -219,7 +216,9 @@
             <section class="message">
                 <h3>Message User</h3>
                 <form class="widget-container">
-                    <input type="text" placeholder="Search for user" class="form-field" id="userField">
+                    <div class="autocomplete">
+                    <input type="text" placeholder="Search for user" class="message-user" id="userField">
+                    </div>
                     <textarea placeholder="Message for user" class="form-area" id="messageField"></textarea>
                     <button class="button-primary" id="send">Send</button>
                 </form>
@@ -267,7 +266,9 @@
             </section>
         </main>
     </div>
+    <script src="js/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

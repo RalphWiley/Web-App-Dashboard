@@ -68,7 +68,6 @@ section.donut {
 
 .main {
   grid-area: main;
-  display: grid;
 }
 
 .widget-container-full, .widget-container-half {
@@ -116,9 +115,13 @@ section.donut {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+  display: block;
+}
 
 .border {
   padding: 15px 0;
@@ -170,6 +173,12 @@ section.donut {
   padding: 5px 5px;
   float: right;
   border: .5px solid rgb(226, 226, 226);
+}
+
+.autocomplete-list {
+  background-color: white;
+  width: 300px;
+  height: auto;
 }
 
 /* alert */
@@ -346,15 +355,38 @@ form textarea {
 }
 
 #send {
-    text-transform: uppercase;
-    width: 100%;
-    padding: 10px 0;
-    background-color: rgb(114, 121, 186);
-    color: white;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 15px;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px 0;
+  background-color: rgb(114, 121, 186);
+  color: white;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.ui-autocomplete {
+  max-height: 200px;
+  width: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.ui-autocomplete li {
+  padding: 5px;
+  color: #4b5c74;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+.ui-autocomplete li:hover {
+  cursor: pointer;
+  background: rgb(114, 121, 186);
+  color: white;
 }
 
 /* settings */
@@ -490,10 +522,6 @@ form textarea {
   background-color: rgb(240, 240, 240);
 }
 
-
-
-
-
 /* media queries */
 @media (min-width: 768px) {
   .grid-container {
@@ -501,6 +529,18 @@ form textarea {
     grid-template-areas:
       "header header"
       "navigation main";
+  }
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    align-items: center;
+  }
+  .logo {
+    width: 20px;
+    height: 20px;
+    padding: 12px 5px;
   }
   .main {
     grid-template-columns: 50%;
@@ -524,4 +564,23 @@ form textarea {
   .widget-container-half {
     width: 45vw;
   }
+
+  .main-header-search {
+    width: 80%;
+  }
+
+  .main-header-search input {
+    width: 30%;
+    margin-right: 15px;
+  }
+  section {
+    padding: 10px;
+  }
+  .social-stats {
+
+  }
+}
+
+@media (min-width: 1024px) {
+  
 }
