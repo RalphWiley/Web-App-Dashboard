@@ -1,5 +1,4 @@
 * {
-  display: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -42,7 +41,6 @@ input:focus, select:focus, textarea:focus {
   margin: auto 0;
   color: white;
   padding: 0 10px;
-  height: 50;
 }
 
 .header h1:first-child {
@@ -62,17 +60,15 @@ section {
   border-bottom: solid 1px lightgrey;
 }
 
-section.donut {
-  padding-bottom: 10px;
-}
-
 .main {
   grid-area: main;
 }
 
 .widget-container-full, .widget-container-half {
   width: 95vw;
+  padding: 20px 0;
 }
+
 /* header */
 .name {
   font-size: 18px;
@@ -286,18 +282,11 @@ section.donut {
 
 /* members */
 .members-container {
-  margin: 10px auto;
-  padding: 10px 10px;
+  padding: 20px 10px;
   display: flex;
   align-items: center;
   font-size: 0.9rem;
   border-bottom: 1px solid rgb(165, 165, 165);
-}
-
-.date {
-  position: absolute;
-  right: 50%;
-  margin: auto;
 }
 
 .members-text {
@@ -314,6 +303,9 @@ section.donut {
   margin-right: 15px;
   border-radius: 50%;
 }
+.members > .members-container:last-child {
+  border: none;
+}
 /* recent activity */
 .arrow {
   color: rgb(177, 177, 177);
@@ -325,7 +317,7 @@ section.donut {
 
 /* message */
 .message {
-    width: 100%;
+ 
     margin: auto;
     text-align: center;
 }
@@ -564,8 +556,7 @@ form textarea {
     grid-column: 1 /span 2;
   }
 
-
-  .traffic, .social-stats {
+  .traffic, .social-stats-section {
     grid-column: 1 / span 2;
   }
 
@@ -579,9 +570,11 @@ form textarea {
 
   .widget-container-full {
     width: 90vw;
+    margin: 0 auto;
   }
   .widget-container-half {
     width: 45vw;
+    margin: 0 auto;
   }
 
   .main-header-search {
@@ -605,8 +598,17 @@ form textarea {
     border: none;
   }
 
+  .date {
+  position: absolute;
+  right: 50%;
+  margin: auto;
+  }
+  .recent-activity > .members-container {
+      padding: 10px 10px;
+  }
+
   .recent-activity > .members-container:nth-of-type(2) {
-    padding: 9.5px 10px;
+      padding: 9.5px 10px;
   }
 
    .recent-activity > .members-container:nth-of-type(3) {
@@ -630,5 +632,26 @@ form textarea {
 }
 
 @media (min-width: 1024px) {
-  
+  .social-stats {
+    flex-direction: row;
+    display: flex;
+    padding: 20px 0;
+  }
+  .social-container {
+    width: 27%;
+  }
+
+  .members > .members-container {
+    padding: 17px 10px;
+  }
+  .recent-activity > .members-container:nth-of-type(3) {
+    padding: 10px 10px;
+  }
+  .main-header-search {
+    width: 88%;
+  }
+  .widget-container-half{
+  padding: 20px 0;
+}
+
 }
