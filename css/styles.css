@@ -164,6 +164,7 @@ section.donut {
   background-color: rgb(226, 226, 226);
   border-radius: 0px 0px 0px 10px;
   padding-right: 0px;
+  width: 70%;
 }
 
 .main-header-search input {
@@ -294,11 +295,14 @@ section.donut {
 }
 
 .date {
-  margin-left: auto;
+  position: absolute;
+  right: 50%;
+  margin: auto;
 }
 
 .members-text {
   overflow: auto;
+  width: 80%;
 }
 
 .members-container a {
@@ -362,7 +366,7 @@ form textarea {
   color: white;
   font-size: 0.9rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 15px;
 }
 
@@ -387,6 +391,11 @@ form textarea {
   cursor: pointer;
   background: rgb(114, 121, 186);
   color: white;
+}
+
+/* timezone */
+.timezone-container {
+  margin-left: 15px;
 }
 
 /* settings */
@@ -496,7 +505,7 @@ form textarea {
 }
 
 .settings-button {
-  margin: 30px 0;
+  margin: 35px;
   display: flex;
 }
 
@@ -504,7 +513,7 @@ form textarea {
 #cancel {
   text-transform: uppercase;
   width: 40%;
-  margin: 0 10px;
+  margin: 0 20px;
   display: block;
   padding: 10px 0;
   font-size: 0.9rem;
@@ -537,20 +546,30 @@ form textarea {
     height: 100%;
     align-items: center;
   }
+
   .logo {
     width: 20px;
     height: 20px;
     padding: 12px 5px;
   }
-  .main {
+  .grid-main {
+    display: grid;
     grid-template-columns: 50%;
   }
 
-  .traffic, .social {
+  .main-header {
+    grid-column: 1 / span 2;
+  }
+  .alert {
+    grid-column: 1 /span 2;
+  }
+
+
+  .traffic, .social-stats {
     grid-column: 1 / span 2;
   }
 
-  .daily, .members, .message {
+  .daily-section, .members, .message {
     grid-column : 1 / span 1;
   }
 
@@ -573,11 +592,40 @@ form textarea {
     width: 30%;
     margin-right: 15px;
   }
-  section {
-    padding: 10px;
-  }
-  .social-stats {
 
+  .members, .message, .daily-section {
+    border-right: solid 1px lightgrey;
+  }
+
+  .members > .members-container{
+    padding: 25px 5px;
+  }
+
+  .members > .members-container:last-of-type {
+    border: none;
+  }
+
+  .recent-activity > .members-container:nth-of-type(2) {
+    padding: 9.5px 10px;
+  }
+
+   .recent-activity > .members-container:nth-of-type(3) {
+    padding: 9.5px 10px;
+  }
+  .recent-activity > .members-container:last-of-type {
+    border: none;
+    padding-bottom: 0;
+  }
+  .message {
+    margin: 0;
+  }
+  #send {
+    margin-top: 32px;
+  }
+
+  #save,
+  #cancel {
+    width: 50%;
   }
 }
 
