@@ -160,7 +160,7 @@ section {
   background-color: rgb(226, 226, 226);
   border-radius: 0px 0px 0px 10px;
   padding-right: 0px;
-  width: 70%;
+  width: 62%;
 }
 
 .main-header-search input {
@@ -578,12 +578,16 @@ form textarea {
   }
 
   .main-header-search {
-    width: 80%;
+    width: 84%;
   }
 
   .main-header-search input {
     width: 30%;
     margin-right: 15px;
+  }
+
+  .traffic-nav {
+    padding-right: 25px;
   }
 
   .members, .message, .daily-section {
@@ -632,6 +636,9 @@ form textarea {
 }
 
 @media (min-width: 1024px) {
+  .traffic-nav {
+    padding-right: 40px;
+  }
   .social-stats {
     flex-direction: row;
     display: flex;
