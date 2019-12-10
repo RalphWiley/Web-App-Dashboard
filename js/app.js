@@ -2,7 +2,7 @@ const notification = document.getElementById("alert");
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
-const alert = document.getElementById("Layer_1");
+const alertBell = document.getElementById("Layer_1");
 const notes = document.getElementById("bell-icon");
 const save = document.querySelector(".save");
 

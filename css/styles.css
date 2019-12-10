@@ -317,18 +317,16 @@ section {
 
 /* message */
 .message {
- 
-    margin: auto;
-    text-align: center;
+  text-align: center;
 }
 
 .message h3 {
-    text-align: start;
+  text-align: start;
 }
 
 form {
-    width: 95%;
-    margin: auto;
+  width: 95%;
+  margin: auto;
 }
 
 form input,
@@ -337,13 +335,14 @@ form textarea {
     display: block;
     margin: auto;
     border: 1px solid rgb(165, 165, 165);
-    margin: 15px 0;
+    margin: 0 auto;
     font-size: 1rem;
     border-radius: 5px;
 }
 
 form input {
     padding: 10px;
+    margin-bottom: 30px;
 }
 
 form textarea {
@@ -360,6 +359,7 @@ form textarea {
   border: none;
   border-radius: 5px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .ui-autocomplete {
@@ -383,6 +383,10 @@ form textarea {
   cursor: pointer;
   background: rgb(114, 121, 186);
   color: white;
+}
+
+.profile-image {
+  margin-left: 10px;
 }
 
 /* timezone */
@@ -497,7 +501,7 @@ form textarea {
 }
 
 .settings-button {
-  margin: 35px;
+  margin: 51px 5px;
   display: flex;
 }
 
